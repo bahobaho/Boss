@@ -17,6 +17,7 @@ namespace Boss.Data
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
+            int t = 0;
             base.OnModelCreating(builder);
             // Customize the ASP.NET Identity model and override the defaults if needed.
             // For example, you can rename the ASP.NET Identity table names and more.
