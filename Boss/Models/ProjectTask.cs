@@ -9,11 +9,8 @@ namespace Boss.Models
     {
         public int Id { get; set; }
 
-        public int PerformerId { get; set; }
-        public ProjectParticipant Performer { get; set; }
-
-        public int ManagerId { get; set; }
-        public ProjectParticipant Manager { get; set; }
+        public int ProjectParticipantId { get; set; }
+        public ProjectParticipant ProjectParticipant { get; set; }
 
         public string Name { get; set; }
         public string Description { get; set; }

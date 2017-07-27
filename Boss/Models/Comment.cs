@@ -9,8 +9,8 @@ namespace Boss.Models
     {
         public int Id { get; set; }
 
-        public int TaskId { get; set; }
-        public ProjectTask Task { get; set; }
+        public int ProjectTaskId { get; set; }
+        public ProjectTask ProjectTask { get; set; }
 
         public int ProjectParticipantId { get; set; }
         public ProjectParticipant ProjectParticipant { get; set; }

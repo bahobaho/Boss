@@ -16,9 +16,6 @@ namespace Boss.Models
         public int UserId { get; set; }
         public ApplicationUser ApplicationUser { get; set; }
 
-        public int BranchId { get; set; }
-        public Branch Branch { get; set; }
-
         public int PositionId { get; set; }
         public Position Position { get; set; }
     }
