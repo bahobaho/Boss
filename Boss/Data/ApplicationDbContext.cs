@@ -25,7 +25,11 @@ namespace Boss.Data
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
-            builder.Entity<Comment>().HasOne(c => c.ProjectParticipant).WithMany().OnDelete(DeleteBehavior.Restrict);
+            builder.Entity<Comment>()
+                .HasOne("Boss.Models.ProjectParticipant", "ProjectParticipant")
+                .WithMany()                        
+                .OnDelete(DeleteBehavior.Restrict);
+
         }
     }
 }

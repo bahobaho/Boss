@@ -243,7 +243,6 @@ namespace Boss.Migrations
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     ProjectParticipantId = table.Column<int>(nullable: false),
                     ProjectTaskId = table.Column<int>(nullable: false),
-                    ProjectTaskId1 = table.Column<int>(nullable: true),
                     Text = table.Column<string>(nullable: true),
                     TimeStamp = table.Column<DateTime>(nullable: false)
                 },
@@ -255,19 +254,13 @@ namespace Boss.Migrations
                         column: x => x.ProjectParticipantId,
                         principalTable: "ProjectParticipants",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Comments_ProjectTasks_ProjectTaskId",
                         column: x => x.ProjectTaskId,
                         principalTable: "ProjectTasks",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Comments_ProjectTasks_ProjectTaskId1",
-                        column: x => x.ProjectTaskId1,
-                        principalTable: "ProjectTasks",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
@@ -290,11 +283,6 @@ namespace Boss.Migrations
                 name: "IX_Comments_ProjectTaskId",
                 table: "Comments",
                 column: "ProjectTaskId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Comments_ProjectTaskId1",
-                table: "Comments",
-                column: "ProjectTaskId1");
 
             migrationBuilder.CreateIndex(
                 name: "IX_ProjectParticipants_ApplicationUserId",

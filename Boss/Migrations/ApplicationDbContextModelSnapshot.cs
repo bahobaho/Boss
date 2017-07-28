@@ -75,8 +75,6 @@ namespace Boss.Migrations
 
                     b.Property<int>("ProjectTaskId");
 
-                    b.Property<int?>("ProjectTaskId1");
-
                     b.Property<string>("Text");
 
                     b.Property<DateTime>("TimeStamp");
@@ -86,8 +84,6 @@ namespace Boss.Migrations
                     b.HasIndex("ProjectParticipantId");
 
                     b.HasIndex("ProjectTaskId");
-
-                    b.HasIndex("ProjectTaskId1");
 
                     b.ToTable("Comments");
                 });
@@ -281,18 +277,12 @@ namespace Boss.Migrations
                 {
                     b.HasOne("Boss.Models.ProjectParticipant", "ProjectParticipant")
                         .WithMany()
-                        .HasForeignKey("ProjectParticipantId")
-                        .OnDelete(DeleteBehavior.Restrict);
+                        .HasForeignKey("ProjectParticipantId");
 
                     b.HasOne("Boss.Models.ProjectTask", "ProjectTask")
                         .WithMany()
                         .HasForeignKey("ProjectTaskId")
-                        .OnDelete(DeleteBehavior.Restrict);
-
-                    b.HasOne("Boss.Models.ProjectTask")
-                        .WithMany()
-                        .HasForeignKey("ProjectTaskId1")
-                        .OnDelete(DeleteBehavior.Restrict); ;
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Boss.Models.ProjectParticipant", b =>
